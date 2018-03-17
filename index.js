@@ -16,7 +16,7 @@ bot.on("warn", (e) => console.warn(e));
 bot.on("debug", (e) => console.info(e));
 
 bot.on('ready', function() {
-    console.log("jazz https://discordapp.com/oauth2/authorize?client_id=424392305663803393&scope=bot&permissions=104324160")},
+    console.log(" Mc Jazz, the Jazzing Jazzer https://discordapp.com/oauth2/authorize?client_id=424392305663803393&scope=bot&permissions=104324160")},
 
 bot.on('ready',() => {
   bot.user.setPresence(({ game: { name: "Jazz Lounge", type: 2}}));
@@ -51,7 +51,7 @@ bot.on("message", function (message) {
           if (message.member.hasPermission("ADMINISTRATOR")) {
         message.member.voiceChannel.join()
         .then (connection => {
-        const stream = message.guild.voiceConnection.playStream("Jazz music/Jazz.mp3")
+        const stream = message.guild.voiceConnection.playStream("Jazz music/jazz.mp3")
         .once('end', () => jazzmusic());
 
         if (message.content === "/start") {
@@ -61,7 +61,7 @@ bot.on("message", function (message) {
           message.channel.reply("You can't do that again.")
         }}
         function jazzmusic() {
-        const stream = connection.playStream("Jazz music/Jazz.mp3")
+        const stream = connection.playStream("Jazz music/jazz.mp3")
         .once('end', () => jazzmusic());
         }
         })
