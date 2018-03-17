@@ -139,4 +139,4 @@ annel.reply("You can't do that again.")
     
 });
 
-bot.login(p
+Client.login(process.env.BOT_TOKEN);
