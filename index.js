@@ -16,7 +16,7 @@ bot.on("warn", (e) => console.warn(e));
 bot.on("debug", (e) => console.info(e));
 
 bot.on('ready', function() {
-    console.log("jazz https://discordapp.com/api/oauth2/authorize?client_id=424361104005791746&permissions=3145728&scope=botpermissions=104324160")},
+    console.log("jazz-music https://discordapp.com/api/oauth2/authorize?client_id=424361104005791746&permissions=3145728&scope=botpermissions=104324160")},
 
 bot.on('ready',() => {
   bot.user.setPresence(({ game: { name: "Jazz Bar Lounge", type: 2}}));
