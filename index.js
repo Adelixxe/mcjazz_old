@@ -34,7 +34,7 @@ bot.on("message", function (message) {
 // Commandes
   switch (args[0]) {
   //toto
-      case "start":
+      case "jazz":
         if (!message.member.voiceChannel) {
         return;
         }
