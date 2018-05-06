@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const path = require('path');
 const bot = new Discord.Client();
 const ddiff = require('return-deep-diff');
-const prefix = "/";
+const prefix = "!";
 const fs = require("fs");
 
 var cli = new Discord.Client({autoReconnect:true});
@@ -34,7 +34,7 @@ bot.on("message", function (message) {
 // Commandes
   switch (args[0]) {
   //toto
-      case "start":
+      case "letsjazz":
         if (!message.member.voiceChannel) {
         return;
         }
