@@ -54,7 +54,7 @@ bot.on("message", function (message) {
         const stream = message.guild.voiceConnection.playStream("Jazz music/jazz.mp3")
         .once('end', () => jazzmusic());
 
-        if (message.content === "$jazz") {
+        if (message.content === "$Jazz") {
           if (!message.member.hasPermission("ADMINISTRATOR")) {
           message.channel.reply("You are not the administrator of this server.")}
           if (message.member.hasPermission("ADMINISTRATOR")) {
