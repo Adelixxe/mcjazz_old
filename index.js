@@ -52,7 +52,7 @@ bot.on("message", function (message) {
         message.member.voiceChannel.join()
         .then (connection => {
         const stream = message.guild.voiceConnection.playStream("Jazz music/jazz.mp3")
-        .once('end', () => jazzmusic());
+        .once('end', () => jazz());
 
         if (message.content === "$Jazz") {
           if (!message.member.hasPermission("ADMINISTRATOR")) {
@@ -60,9 +60,9 @@ bot.on("message", function (message) {
           if (message.member.hasPermission("ADMINISTRATOR")) {
           message.channel.reply("You can't do that again.")
         }}
-        function jazzmusic() {
+        function jazz() {
         const stream = connection.playStream("Jazz music/jazz.mp3")
-        .once('end', () => jazzmusic());
+        .once('end', () => jazz());
         }
         })
       } else {
