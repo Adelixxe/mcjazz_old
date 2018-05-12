@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const path = require('path');
 const bot = new Discord.Client();
 const ddiff = require('return-deep-diff');
-const prefix = "$";
+const prefix = "!";
 const fs = require("fs");
 
 var cli = new Discord.Client({autoReconnect:true});
@@ -54,14 +54,14 @@ bot.on("message", function (message) {
         const stream = message.guild.voiceConnection.playStream("Jazz music/jazz.mp3")
         .once('end', () => jazz());
 
-        if (message.content === "$Jazz") {
+        if (message.content === "!jazz") {
           if (!message.member.hasPermission("ADMINISTRATOR")) {
           message.channel.reply("You are not the administrator of this server.")}
           if (message.member.hasPermission("ADMINISTRATOR")) {
           message.channel.reply("You can't do that again.")
         }}
         function jazz() {
-        const stream = connection.playStream("Jazz music/jazz.mp3")
+        const stream = connection.playStream("mcjazz/jazz.mp3")
         .once('end', () => jazz());
         }
         })
