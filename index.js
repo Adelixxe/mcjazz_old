@@ -54,7 +54,7 @@ bot.on("message", function (message) {
         const stream = message.guild.voiceConnection.playStream("Jazz music/jazz.mp3")
         .once('end', () => jazz());
 
-        if (message.content === "!jazz") {
+        if (message.content === "*jazz") {
           if (!message.member.hasPermission("ADMINISTRATOR")) {
           message.channel.reply("You are not the administrator of this server.")}
           if (message.member.hasPermission("ADMINISTRATOR")) {
@@ -71,7 +71,7 @@ bot.on("message", function (message) {
       break;
 
         //STOP
-    case "stopjazz":
+    case "stop":
         var server = servers[message.guild.id];
         if (!message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
         message.delete(10000)
