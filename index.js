@@ -84,12 +84,10 @@ bot.on("message", function (message) {
     case "leave":
         var server = servers[message.guild.id];
         if (!message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
-            message.member.channel.leave()
             message.delete(10000)
         }
 
         if (message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
-            message.member.channel.leave()
             message.delete(10000)
         }
         break;
