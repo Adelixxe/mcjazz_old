@@ -19,7 +19,7 @@ bot.on('ready', function() {
     console.log(" Mc Jazz, the Jazzing Jazzer https://discordapp.com/oauth2/authorize?client_id=424392305663803393&scope=bot&permissions=104324160")},
 
 bot.on('ready',() => {
-  bot.user.setPresence(({ game: { name: "du Jazz Lounge", type: 2}}));
+  bot.user.setPresence(({ game: { name: " Jazz Lounge", type: 2}}));
 })),
 
 bot.on("message", function (message) {
