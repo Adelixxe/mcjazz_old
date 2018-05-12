@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const path = require('path');
 const bot = new Discord.Client();
 const ddiff = require('return-deep-diff');
-const prefix = "!";
+const prefix = "*";
 const fs = require("fs");
 
 var cli = new Discord.Client({autoReconnect:true});
