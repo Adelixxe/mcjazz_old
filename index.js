@@ -73,22 +73,22 @@ bot.on("message", function (message) {
     case "stop":
         var server = servers[message.guild.id];
         if (!message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
-            message.delete(10000)
+        message.delete(10000)
         }
 
         if (message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
-            message.delete(10000)
+        message.delete(10000)
         }
         break;
 
     case "leave":
         var server = servers[message.guild.id];
         if (!message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
-            message.delete(10000)
+        message.delete(10000)
         }
 
         if (message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
-            message.delete(10000)
+        message.delete(10000)
         }
         break;
 
