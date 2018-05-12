@@ -41,8 +41,7 @@ bot.on("message", function (message) {
 
         if (!message.member.hasPermission("ADMINISTRATOR")) {
         return false; 
-        }
-        
+               
         if (message.guild.voiceConnection) {return;}
 
         if (message.member.voiceChannel) 
@@ -74,24 +73,24 @@ bot.on("message", function (message) {
     case "stop":
         var server = servers[message.guild.id];
         if (!message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
-        message.delete(10000)
-        client.disconnect()
+            message.delete(10000)
         }
 
         if (message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
-        message.delete(10000)
+            message.delete(10000)
         }
         break;
 
     case "leave":
         var server = servers[message.guild.id];
         if (!message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
-        message.delete(10000)
-        client.disconnect()
+            message.member.channel.leave()
+            message.delete(10000)
         }
 
         if (message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
-        message.delete(10000)
+            message.member.channel.leave()
+            message.delete(10000)
         }
         break;
 
