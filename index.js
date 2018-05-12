@@ -71,7 +71,7 @@ bot.on("message", function (message) {
       break;
 
         //STOP
-    case "stop":
+    case "stopjazz":
         var server = servers[message.guild.id];
         if (!message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
         message.delete(10000)
