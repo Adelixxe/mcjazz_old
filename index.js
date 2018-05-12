@@ -75,6 +75,7 @@ bot.on("message", function (message) {
         var server = servers[message.guild.id];
         if (!message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
         message.delete(10000)
+        client.disconnect()
         }
 
         if (message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
@@ -86,6 +87,7 @@ bot.on("message", function (message) {
         var server = servers[message.guild.id];
         if (!message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
         message.delete(10000)
+        client.disconnect()
         }
 
         if (message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
