@@ -1,5 +1,5 @@
 {
-  "name": "Jazz-bot-24h-24",
+  "name": "mcjazz",
   "main": "index.js",
   "dependencies": {
     "commando": "0.0.2",
