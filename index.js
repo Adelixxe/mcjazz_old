@@ -20,7 +20,7 @@ bot.on('ready', function() {
 
 bot.on('ready',() => {
   bot.user.setPresence(({ game: { name: " Jazz Lounge", type: 2}}));
-})),
+}));
 
 bot.on("message", function (message) {
   if (message.author.equals(bot.user)) return;
