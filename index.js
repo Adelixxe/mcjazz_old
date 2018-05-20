@@ -68,11 +68,12 @@ bot.on("message", function (message) {
       } else {
       return;
       }}
+      break;
+          
         client.on('message', msg => {
            if (msg.content === '*help') {
      msg.reply('*jazz *leave *help * stop');
   }
-      break;
 
         //STOP
     case "stop":
