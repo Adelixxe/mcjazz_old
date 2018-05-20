@@ -70,7 +70,7 @@ bot.on("message", function (message) {
       }}
       break;
 
-          //STOP
+        //STOP
     case "stop":
         var server = servers[message.guild.id];
         if (!message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
@@ -94,7 +94,10 @@ bot.on("message", function (message) {
             message.delete(10000)
         }
         break;
-             
+
+    }
+
+    
 });
 
 bot.login(process.env.BOT_TOKEN);
