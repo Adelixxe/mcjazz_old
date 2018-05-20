@@ -68,6 +68,10 @@ bot.on("message", function (message) {
       } else {
       return;
       }}
+        client.on('message', msg => {
+           if (msg.content === '*help') {
+     msg.reply('*jazz *leave *help * stop');
+  }
       break;
 
         //STOP
@@ -94,23 +98,7 @@ bot.on("message", function (message) {
             message.delete(10000)
         }
         break;
-          
-      case "help":
-        var server = servers[message.guild.id];
-        if (!message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
-            client.on('message', msg => {
-                if (msg.content === '*help') {
-                    msg.reply('jazz stop leave help');
-                             }
-
-        if (message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
-            message.delete(10000)
-        }
-        break;
-
-    }
-
-    
+             
 });
 
 bot.login(process.env.BOT_TOKEN);
