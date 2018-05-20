@@ -69,13 +69,8 @@ bot.on("message", function (message) {
       return;
       }}
       break;
-          
-        client.on('message', msg => {
-           if (msg.content === '*help') {
-     msg.reply('*jazz *leave *help * stop');
-  }
 
-        //STOP
+          //STOP
     case "stop":
         var server = servers[message.guild.id];
         if (!message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
