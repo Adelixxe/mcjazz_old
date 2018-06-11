@@ -33,7 +33,7 @@ bot.on("message", function (message) {
 
 // Commandes
   switch (args[0]) {
-  //toto
+  //jazz
       case "jazz":
         if (!message.member.voiceChannel) {
         return;
@@ -51,7 +51,7 @@ bot.on("message", function (message) {
           if (message.member.hasPermission("ADMINISTRATOR")) {
         message.member.voiceChannel.join()
         .then (connection => {
-        const stream = message.guild.voiceConnection.playStream("Jazz music/jazz.mp3")
+        const stream = message.guild.voiceConnection.playStream("Jazz Music/jazz.mp3")
         .once('end', () => jazz());
 
         if (message.content === "*jazz") {
@@ -61,7 +61,7 @@ bot.on("message", function (message) {
           message.channel.reply("You can't do that again.")
         }}
         function jazz() {
-        const stream = connection.playStream("mcjazz/jazz.mp3")
+        const stream = connection.playStream("Jazz Music/jazz.mp3")
         .once('end', () => jazz());
         }
         })
@@ -74,14 +74,29 @@ bot.on("message", function (message) {
     case "stop":
         var server = servers[message.guild.id];
         if (!message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
+        //Arrêter Bot
         message.delete(10000)
+        
         }
 
         if (message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
         message.delete(10000)
         }
         break;
+        
+     //RESUME
+    case "resume"
+        var server = servers[message.guild.id];
+        if (!message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
+        //Faire reprendre le bot()
+        message.delete(10000) 
+        }
 
+        if (message.guild.member(bot.user).permissions.has("ADMINISTRATOR"))  {
+        message.delete(10000)
+        }
+        break;
+        //LEAVE
     case "leave":
         var server = servers[message.guild.id];
         if (!message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
