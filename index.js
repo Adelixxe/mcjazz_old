@@ -61,7 +61,7 @@ bot.on("message", function (message) {
           message.channel.reply("You can't do that again.")
         }}
         function jazz() {
-        const stream = connection.playStream("mcjazz/jazz.mp3")
+        const stream = connection.playStream("Jazz music/jazz.mp3")
         .once('end', () => jazz());
         }
         })
