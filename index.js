@@ -74,14 +74,10 @@ bot.on("message", function (message) {
     case "stop":
         var server = servers[message.guild.id];
         if (!message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
-             err = Pa_StartStream( stream );
-             if( err != paNoError ) goto error;
         message.delete(10000)
         }
 
         if (message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
-            err = Pa_StartStream( stream );
-                if( err != paNoError ) goto error; 
             message.delete(10000)
         }
         break;
