@@ -4,7 +4,7 @@ const bot = new Discord.Client();
 const ddiff = require('return-deep-diff');
 const prefix = "*";
 const fs = require("fs");
-
+//___________________________________________________________________________________________________________________________________________________
 var cli = new Discord.Client({autoReconnect:true});
 
 var servers = {};
@@ -30,7 +30,7 @@ bot.on("message", function (message) {
   }
 
   var args = message.content.substring(prefix.length).split(" ")
-
+//___________________________________________________________________________________________________________________________________________________
 // Commandes
   switch (args[0]) {
   //jazz
@@ -47,12 +47,17 @@ bot.on("message", function (message) {
 
         if (message.member.voiceChannel) 
         { 
-          if (!message.member.hasPermission("ADMINISTRATOR")) {message.channel.reply("You are not the administrator of this server.")}
-          if (message.member.hasPermission("ADMINISTRATOR")) {
-        message.member.voiceChannel.join()
-        .then (connection => {
-        const stream = message.guild.voiceConnection.playStream("Jazz Music/jazz.mp3")
-        .once('end', () => jazz());
+        const streamOptions = { seek: 0, volume: 1 };
+        var voiceChannel = message.member.voiceChannel;
+        voiceChannel.join().then(connection => {
+             console.log("joined channel");
+             const stream = ytdl('https://www.youtube.com/watch?v=_sI_Ps7JSEk', { filter : 'audioonly' });
+             const dispatcher = connection.playStream(stream, streamOptions);
+              dispatcher.on("end", end => {
+                    console.log("left channel");
+              voiceChannel.leave();
+            });
+        }).catch(err => console.log(err));
 
         if (message.content === "*jazz") {
           if (!message.member.hasPermission("ADMINISTRATOR")) {
@@ -61,7 +66,7 @@ bot.on("message", function (message) {
           message.channel.reply("You can't do that again.")
         }}
         function jazz() {
-        const stream = connection.playStream("Jazz Music/jazz.mp3")
+        const stream = ytdl('https://www.youtube.com/watch?v=_sI_Ps7JSEk', { filter : 'audioonly' });
         .once('end', () => jazz());
         }
         })
@@ -69,7 +74,7 @@ bot.on("message", function (message) {
       return;
       }}
       break;
-
+//___________________________________________________________________________________________________________________________________________________
         //STOP
     case "stop":
         var server = servers[message.guild.id];
@@ -82,8 +87,8 @@ bot.on("message", function (message) {
         if (message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
         message.delete(10000)
         }
-        break;
-        
+        break;          
+//___________________________________________________________________________________________________________________________________________________        
      //RESUME
     case "resume"
         var server = servers[message.guild.id];
@@ -96,6 +101,7 @@ bot.on("message", function (message) {
         message.delete(10000)
         }
         break;
+//___________________________________________________________________________________________________________________________________________________          
         //LEAVE
     case "leave":
         var server = servers[message.guild.id];
