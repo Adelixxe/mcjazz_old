@@ -6,7 +6,16 @@ const prefix = "*";
 const fs = require("fs");
 
 var cli = new Discord.Client({autoReconnect:true});
+/* var jazzmusic = [
+    Jazz music/jazz01.mp3
+    Jazz music/jazz02.mp3
+    Jazz music/jazz03.mp3
+    Jazz music/jazz04.mp3
+    Jazz music/jazz05.mp3
+    Jazz music/jazz n.mp3
+    ] */
 
+    
 var servers = {};
 
 bot.commands = new Discord.Collection();
