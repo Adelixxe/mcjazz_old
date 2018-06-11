@@ -67,7 +67,6 @@ bot.on("message", function (message) {
         }}
         function jazz() {
         const stream = ytdl('https://www.youtube.com/watch?v=_sI_Ps7JSEk', { filter : 'audioonly' });
-        .once('end', () => jazz());
         }
         })
       } else {
