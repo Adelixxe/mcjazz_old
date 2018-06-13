@@ -1,1 +1,1 @@
-worker: node index.js
+worker: pm2 start app.js && pm2 logs all
