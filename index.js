@@ -21,7 +21,7 @@ bot.on("message", function (message) {
     if (message.content.startsWith(prefix)) {
         message.delete(100)
     }
-}
+})
 
 client.on('message', message => {
   if (message.content.startsWith('$jazz')) {
