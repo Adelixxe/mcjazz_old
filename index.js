@@ -1,5 +1,5 @@
 const Discord = 'discord.js';
-var bot = new Discord.Client();
+const bot = new Discord.Client();
 const prefix = "$";
 const fs = require('fs');
 const ytdl = require('ytdl-core');
