@@ -5,7 +5,7 @@ const fs = require('fs');
 const ytdl = require('ytdl-core');
 
 bot.on('ready', function() => {
-  console.log('McJazz is ready");   
+  console.log('McJazz is ready');   
     });
  
 bot.on('ready', () => {
