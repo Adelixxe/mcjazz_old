@@ -36,7 +36,7 @@ client.on('message', message => {
             const stream = ytdl(url, { filter: 'audioonly' });
             music();
             });
-        });
+        })
 
         function music() {
             const stream = connection.playStream(stream);
