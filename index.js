@@ -24,24 +24,23 @@ bot.on("message", function (message) {
 })
 
 client.on('message', message => {
-  if (message.content.startsWith('$jazz')) {
-   
-    console.log('Got a song request!');
-    const voiceChannel = message.member.voiceChannel;
-    
-    if (!voiceChannel) {
-      return message.reply('Please be in a voice channel first!');
-    }
-    voiceChannel.join()
-      .then(connection => {
-        const stream = ytdl(url, { filter: 'audioonly' });
-        const dispatcher = connection.playStream(stream);
-        dispatcher.on('end', () => {
-          voiceChannel.leave();
-        
-        });
-      });
-  }
-});       
-       
+    if (message.content.startsWith('$jazz')) {
+        console.log('Got a song request!');
+        const voiceChannel = message.member.voiceChannel;
+
+        if (!voiceChannel) return message.reply('Please be in a voice channel first!');
+
+        voiceChannel.join()
+
+        .then(connection => {
+            const stream = ytdl(url, { filter: 'audioonly' });
+            const dispatcher = connection.playStream(stream);
+            dispatcher.on('end', () => {
+                voiceChannel.leave();
+            }
+        }
+
+    });
+});
+
 bot.login(process.env.BOT_TOKEN);
