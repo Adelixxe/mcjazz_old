@@ -21,7 +21,7 @@ bot.on("message", function (message) {
     if (message.content.startsWith(prefix)) {
         message.delete(100)
     }
-})
+});
 
 client.on('message', message => {
     if (message.content.startsWith('$jazz')) {
@@ -30,14 +30,19 @@ client.on('message', message => {
 
         if (!voiceChannel) return message.reply('Please be in a voice channel first!');
 
-        voiceChannel.join()
+        voiceChannel.join();
 
         .then(connection => {
             const stream = ytdl(url, { filter: 'audioonly' });
             const dispatcher = connection.playStream(stream);
             dispatcher.on('end', () => {
-                voiceChannel.leave();
-            }
+                .once('end', () => music());
+            });
+        });
+
+        function music() {
+            const stream = connection.playStream(stream);
+            .once('end', () => music());
         }
 
     });
