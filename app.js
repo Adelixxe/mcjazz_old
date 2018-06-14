@@ -1,1 +1,1 @@
-
+const Discord = 'discord.js'
