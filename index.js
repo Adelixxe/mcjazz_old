@@ -6,7 +6,7 @@ const ytdl = require('ytdl-core');
 
 const url = 'https://youtube.com/watch?v=_sI_Ps7JSEk'
 
-bot.on('ready',  => {
+bot.on('ready', () => {
     console.log('McJazz is ready');
 });
 
