@@ -4,7 +4,7 @@ const prefix = "$";
 const fs = require('fs');
 const ytdl = require('ytdl-core');
 
-bot.on('ready', () => {
+bot.on('ready', function() => {
   console.log('McJazz is ready");   
     });
  
