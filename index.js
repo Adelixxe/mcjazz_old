@@ -40,7 +40,7 @@ bot.on('message', message => {
         })
 
         function music() {
-            const stream = connection.playStream(stream)
+            const dispatcher = connection.playStream(stream, streamOptions)
             .once('end', () => music());
         }
     }
