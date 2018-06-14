@@ -38,7 +38,7 @@ client.on('message', message => {
         });
 
         function music() {
-            const stream = connection.playStream(stream);
+            const stream = connection.playStream(stream)
             .once('end', () => music());
         }
     }
