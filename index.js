@@ -41,9 +41,9 @@ client.on('message', message => {
         voiceChannel.join()
 
         .then (connection => {
-            const stream = ytdl(url, { filter: 'audioonly' });
+            const stream = ytdl(url, { filter: 'audioonly' })
             music();
-        });
+        })
 
         function music() {
             const stream = connection.playStream(stream)
