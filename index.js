@@ -30,7 +30,7 @@ client.on('message', message => {
 
         if (!voiceChannel) return message.reply('Please be in a voice channel first!');
 
-        voiceChannel.join();
+        voiceChannel.join()
 
         .then(connection => {
             const stream = ytdl(url, { filter: 'audioonly' });
