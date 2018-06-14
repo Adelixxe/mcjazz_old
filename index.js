@@ -32,7 +32,7 @@ client.on('message', message => {
 
         voiceChannel.join()
 
-        .then(connection => {
+        .then (connection => {
             const stream = ytdl(url, { filter: 'audioonly' });
             music();
             });
