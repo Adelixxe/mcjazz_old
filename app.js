@@ -4,6 +4,8 @@ const prefix = "$";
 const fs = require('fs');
 const ytdl = require('ytdl-core');
 
+const url = 'https://youtube.com/watch?v=_sI_Ps7JSEk'
+
 bot.on('ready', function() => {
     console.log('McJazz is ready');
 });
@@ -21,4 +23,27 @@ bot.on("message", function (message) {
     }
 }
 
+client.on('message', message => {
+  if (message.content.startsWith('$jazz')) {
+   
+    console.log('Got a song request!');
+    const voiceChannel = message.member.voiceChannel;
+    
+    if (!voiceChannel) {
+      return message.reply('Please be in a voice channel first!');
+    }
+    voiceChannel.join()
+      .then(connection => {
+        
+        const stream = ytdl(url, { filter: 'audioonly' });
+        const dispatcher = connection.playStream(stream);
+        
+        dispatcher.on('end', () => {
+          voiceChannel.leave();
+        
+        });
+      });
+  }
+});       
+       
 bot.login(process.env.BOT_TOKEN);
