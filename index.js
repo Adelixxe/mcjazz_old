@@ -25,8 +25,7 @@ bot.on("message", function (message) {
         message.delete(100)
     }
 });
-
-client.on('message', message => {
+bot.on('message', message => {
     if (message.content.startsWith('$jazz')) {
         console.log('Got a song request!');
         const voiceChannel = message.member.voiceChannel;
