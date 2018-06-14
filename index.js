@@ -35,15 +35,13 @@ client.on('message', message => {
         .then (connection => {
             const stream = ytdl(url, { filter: 'audioonly' });
             music();
-            });
-        })
+        });
 
         function music() {
             const stream = connection.playStream(stream);
             .once('end', () => music());
         }
-
-    });
+    }
 });
 
 bot.login(process.env.BOT_TOKEN);
