@@ -1,4 +1,4 @@
-const Discord = 'discord.js';
+const Discord = require('discord.js');
 const bot = new Discord.Client();
 const prefix = "$";
 const fs = require('fs');
