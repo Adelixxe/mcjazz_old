@@ -5,7 +5,7 @@ const fs = require('fs');
 const ytdl = require('ytdl-core');
 
 const url = 'https://youtube.com/watch?v=_sI_Ps7JSEk'
-
+var cli = new Discord.Client({autoReconnect:true});
 bot.on('ready', () => {
     console.log('McJazz is ready');
 });
