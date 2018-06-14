@@ -1,7 +1,10 @@
 const Discord = require('discord.js');
+const path = require('path');
 const bot = new Discord.Client();
 const prefix = "$";
 const fs = require('fs');
+const ddiff = require('return-deep-diff');
+
 const ytdl = require('ytdl-core');
 
 const url = 'https://youtube.com/watch?v=_sI_Ps7JSEk'
