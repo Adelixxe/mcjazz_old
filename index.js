@@ -34,9 +34,7 @@ client.on('message', message => {
 
         .then(connection => {
             const stream = ytdl(url, { filter: 'audioonly' });
-            const dispatcher = connection.playStream(stream);
-            dispatcher.on('end', () => {
-                .once('end', () => music());
+            music();
             });
         });
 
