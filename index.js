@@ -15,7 +15,7 @@ var cli = new Discord.Client({autoReconnect:true});
     Jazz music/jazz n.mp3
     ] */
 
-    
+
 var servers = {};
 
 bot.commands = new Discord.Collection();
@@ -27,7 +27,7 @@ bot.on("debug", (e) => console.info(e));
 bot.on('ready', function() {
     console.log(" Mc Jazz, the Jazzing Jazzer https://discordapp.com/oauth2/authorize?client_id=424392305663803393&scope=bot&permissions=104324160")},
 
-bot.on('ready',() => {
+bot.on('ready', () => {
   bot.user.setPresence(({ game: { name: " Jazz Lounge", type: 2}}));
 }));
 
@@ -51,11 +51,11 @@ bot.on("message", function (message) {
         if (!message.member.hasPermission("ADMINISTRATOR")) {
         return false;
         }
-               
+
         if (message.guild.voiceConnection) {return;}
 
-        if (message.member.voiceChannel) 
-        { 
+        if (message.member.voiceChannel)
+        {
           if (!message.member.hasPermission("ADMINISTRATOR")) {message.channel.reply("You are not the administrator of this server.")}
           if (message.member.hasPermission("ADMINISTRATOR")) {
         message.member.voiceChannel.join()
@@ -106,7 +106,7 @@ bot.on("message", function (message) {
 
     }
 
-    
+
 });
 
 bot.login(process.env.BOT_TOKEN);
