@@ -6,6 +6,7 @@ const fs = require('fs');
 const ddiff = require('return-deep-diff');
 const ytdl = require('ytdl-core');
 
+var cli = new Discord.Client({autoReconnect:true});
 
 const url = 'https://youtube.com/watch?v=_sI_Ps7JSEk'
 
