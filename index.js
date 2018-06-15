@@ -8,6 +8,8 @@ const ytdl = require('ytdl-core');
 
 var cli = new Discord.Client({autoReconnect:true});
 
+bot.commands = new Discord.Collection();
+
 const url = 'https://youtube.com/watch?v=_sI_Ps7JSEk'
 
 bot.on('ready', () => {
@@ -36,12 +38,12 @@ bot.on('message', message => {
         voiceChannel.join()
 
         .then (connection => {
-            const stream = ytdl(url, { filter: 'audioonly' })
+            const stream = message.guild.voiceConnection(ytdl(url, { filter: 'audioonly' }))
             music();
         })
 
         function music() {
-            const dispatcher = connection.playStream(ytdl(url))
+            const stream = connection.playStream(ytdl(url))
             .once('end', () => music());
         }
     }
