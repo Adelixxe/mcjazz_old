@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const bot = new Discord.Client(); 
+const bot = new Discord.Client();
 const path = require('path');
 const prefix = "$";
 const fs = require('fs');
@@ -28,6 +28,7 @@ bot.on("message", function (message) {
         message.delete(100)
     }
 });
+
 bot.on('message', message => {
     if (message.content.startsWith('$jazz')) {
         console.log('Got a song request!');
@@ -38,12 +39,11 @@ bot.on('message', message => {
         voiceChannel.join()
 
         .then (connection => {
-            const stream = message.guild.voiceConnection.playStream(ytdl(url, { filter: 'audioonly' }))
             music();
         })
 
         function music() {
-            const stream = Connection.playStream(stream)
+            const stream = message.guild.voiceConnection.playStream(ytdl(url, { filter: 'audioonly' }))
             .once('end', () => music());
         }
     }
