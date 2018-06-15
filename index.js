@@ -45,7 +45,7 @@ bot.on('message', message => {
         })
 
         function music() {
-            const stream = message.guild.voiceConnection.playStream(ytdl(url, { filter: 'audioonly' }))
+            const stream = message.guild.voiceConnection.playStream(ytdl(url, { filter: 'audioonly' }), streamOptions) 
             .once('end', () => music());
         }
     }
