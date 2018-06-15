@@ -1,5 +1,5 @@
-const bot = new Discord.Client();
 const Discord = require('discord.js');
+const bot = new Discord.Client(); 
 const path = require('path');
 const prefix = "$";
 const fs = require('fs');
