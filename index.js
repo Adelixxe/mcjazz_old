@@ -45,9 +45,34 @@ bot.on('message', message => {
         })
 
         function music() {
-            const stream = message.guild.voiceConnection.playStream(ytdl(url, { filter: 'audioonly' }), streamOptions) 
+            const stream = message.guild.voiceConnection.playStream(ytdl(url, { filter: 'audioonly' }), streamOptions)
             .once('end', () => music());
         }
+    }
+    if (message.content.startsWith('$stop')) {
+        console.log('Stop');
+        if (!message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
+            message.member.voiceChannel.end()
+            message.delete(10000)
+        }
+
+        if (message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
+            message.member.voiceChannel.end()
+            message.delete(10000)
+        }}
+    if (message.content.startsWith('$leave')) {
+        console.log('leave');
+        if (!message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
+            message.member.voiceChannel.leave()
+            message.delete(10000)
+        }
+
+        if (message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
+            message.member.voiceChannel.leave()
+            message.delete(10000)
+        }
+
+
     }
 });
 
