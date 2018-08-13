@@ -80,7 +80,7 @@ function music() {
 }
 
 function music2() {
-    const stream = message.guild.voiceConnection.playStream(ytdl(url2,  { filter: 'audioonly' }), streamOptions)}
+    const stream = message.guild.voiceConnection.playStream(ytdl(url2,  { filter: 'audioonly' }), streamOptions)
     .once('end', () => music())
 }
 
