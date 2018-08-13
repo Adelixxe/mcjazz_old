@@ -27,15 +27,13 @@ bot.on('ready', () => {
 bot.on("message", function (message) {
     if (message.author.equals(bot.user)) return;
     if (!message.content.startsWith(prefix)) return;
-
-    if (message.content.startsWith(prefix)) {
-        message.delete(100)
-    }
+    if (message.content.startsWith(prefix)) message.delete(100);
 });
 
 bot.on('message', message => {
     if (message.content.startsWith('$jazz')) {
         console.log('Got a song request!');
+
         const voiceChannel = message.member.voiceChannel;
 
         if (!voiceChannel) return message.reply('Please be in a voice channel first!');
@@ -45,16 +43,11 @@ bot.on('message', message => {
         .then (connection => {
             music();
         })
-        function music2() {
-          const stream = message.guild.voiceConnection.playStream(ytdl(url2,  { filter: 'audioonly' }), streamOptions)}
-
-        function music() {
-            const stream = message.guild.voiceConnection.playStream(ytdl(url, { filter: 'audioonly' }), streamOptions)
-            .once('end', () => music2()) .once('end', () => music())
-        }
     }
+
     if (message.content.startsWith('$stop')) {
         console.log('Stop');
+
         if (!message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
             message.member.voiceChannel.end()
             message.delete(10000)
@@ -63,9 +56,12 @@ bot.on('message', message => {
         if (message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
             message.member.voiceChannel.end()
             message.delete(10000)
-        }}
+        }
+    }
+
     if (message.content.startsWith('$leave')) {
         console.log('leave');
+
         if (!message.guild.member(bot.user).permissions.has("ADMINISTRATOR")) {
             message.member.voiceChannel.leave()
             message.delete(10000)
@@ -75,9 +71,17 @@ bot.on('message', message => {
             message.member.voiceChannel.leave()
             message.delete(10000)
         }
-
-
     }
 });
+
+function music() {
+    const stream = message.guild.voiceConnection.playStream(ytdl(url, { filter: 'audioonly' }), streamOptions)
+    .once('end', () => music2())
+}
+
+function music2() {
+    const stream = message.guild.voiceConnection.playStream(ytdl(url2,  { filter: 'audioonly' }), streamOptions)}
+    .once('end', () => music())
+}
 
 bot.login(process.env.BOT_TOKEN);
