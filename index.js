@@ -42,6 +42,17 @@ bot.on('message', message => {
 
         .then (connection => {
             music();
+
+            function music() {
+                const stream = message.guild.voiceConnection.playStream(ytdl(url, { filter: 'audioonly' }), streamOptions)
+                .once('end', () => const stream = message.guild.voiceConnection.playStream(ytdl(url2,  { filter: 'audioonly' }), streamOptions))
+                .once('end', () => music())
+            }
+
+            /*function music2() {
+                const stream = message.guild.voiceConnection.playStream(ytdl(url2,  { filter: 'audioonly' }), streamOptions)
+                .once('end', () => music())
+            }*/
         })
     }
 
@@ -73,15 +84,5 @@ bot.on('message', message => {
         }
     }
 });
-
-function music() {
-    const stream = message.guild.voiceConnection.playStream(ytdl(url, { filter: 'audioonly' }), streamOptions)
-    .once('end', () => music2())
-}
-
-function music2() {
-    const stream = message.guild.voiceConnection.playStream(ytdl(url2,  { filter: 'audioonly' }), streamOptions)
-    .once('end', () => music())
-}
 
 bot.login(process.env.BOT_TOKEN);
