@@ -13,7 +13,7 @@ var cli = new Discord.Client({autoReconnect:true});
 bot.commands = new Discord.Collection();
 
 const url = 'https://www.youtube.com/watch?v=eVrYbKBrI7o'
-const url2 = 'https://www.youtube.com/watch?v=MUL5w91dzbo'
+const url2 = 'https://www.youtube.com/watch?v=G5DA1tkan94'
 /* https://youtube.com/watch?v=_sI_Ps7JSEk */
 
 bot.on('ready', () => {
