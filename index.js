@@ -48,9 +48,9 @@ bot.on('message', message => {
 
         function music() {
             const stream = message.guild.voiceConnection.playStream(ytdl(url, { filter: 'audioonly' }), streamOptions)
-            .once('end', () =>
-            const stream = message.guild.voiceConnection.playStream(ytdl(url2), streamOptions)
-            .once('end', () => music ())
+            .once('end', () => function url2() {
+              const stream = message.guild.voiceConnection.playStream(ytdl(url2,  { filter: 'audioonly' }), streamOptions)
+            }) .once('end', () => music ())
         }
     }
     if (message.content.startsWith('$stop')) {
