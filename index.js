@@ -45,12 +45,12 @@ bot.on('message', message => {
         .then (connection => {
             music();
         })
+        function music2() {
+          const stream = message.guild.voiceConnection.playStream(ytdl(url2,  { filter: 'audioonly' }), streamOptions)}
 
         function music() {
             const stream = message.guild.voiceConnection.playStream(ytdl(url, { filter: 'audioonly' }), streamOptions)
-            .once('end', () => function url2() {
-              const stream = message.guild.voiceConnection.playStream(ytdl(url2,  { filter: 'audioonly' }), streamOptions)
-            }) .once('end', () => music ())
+            .once('end', () => music2 ()) .once('end', () => music ())
         }
     }
     if (message.content.startsWith('$stop')) {
