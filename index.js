@@ -50,7 +50,7 @@ bot.on('message', message => {
 
         function music() {
             const stream = message.guild.voiceConnection.playStream(ytdl(url, { filter: 'audioonly' }), streamOptions)
-            .once('end', () => music2 ()) .once('end', () => music ())
+            .once('end', () => music2()) .once('end', () => music())
         }
     }
     if (message.content.startsWith('$stop')) {
