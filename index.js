@@ -32,6 +32,8 @@ Un simple message.delete() suffit por supprimer la commande.
 */
 
 bot.on('message', message => {
+    const voiceChannel = message.member.voiceChannel;
+
     if (message.content === '$leave') {
         console.log('leave');
         message.delete();
@@ -41,8 +43,6 @@ bot.on('message', message => {
     if (message.content === '$jazz') {
         console.log('request');
         message.delete();
-
-        const voiceChannel = message.member.voiceChannel;
 
         if (!voiceChannel) return message.reply('Please be in a voice channel first!');
 
