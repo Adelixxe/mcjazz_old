@@ -1,9 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const path = require('path');
-/*const prefix = "$";
-Inutile car on vérifie que le message commence par "$jazz", etc.
-*/
 const fs = require('fs');
 const ddiff = require('return-deep-diff');
 const ytdl = require('ytdl-core');
@@ -23,35 +20,34 @@ bot.on('ready', () => {
     bot.user.setPresence(({ game: { name: " Jazz Lounge", type: 2}}));
 });
 
-/*bot.on("message", function (message) {
-    if (message.author.equals(bot.user)) return;
-    if (!message.content.startsWith(prefix)) return;
-    if (message.content.startsWith(prefix)) message.delete(100);
-});
-Un simple message.delete() suffit por supprimer la commande.
-*/
-
-bot.on('message', message => {
+bot.on('message', msg => {
     const voiceChannel = message.member.voiceChannel;
 
-    if (message.content === '$leave') {
+    if (msg.content === '$leave') {
         console.log('leave');
-        message.delete();
+        msg.delete();
         voiceChannel.leave();
     }
 
-    if (message.content === '$jazz') {
+    if (msg.content === '$jazz') {
         console.log('request');
-        message.delete();
+        msg.delete();
 
-        if (!voiceChannel) return message.reply('Please be in a voice channel first!');
+        if (!voiceChannel) return msg.reply('Please be in a voice channel first!');
 
         voiceChannel.join().then(connection => {
-            let stream = connection.playStream(ytdl(url, { filter: 'audioonly' }), streamOptions);
-            stream.on("end", () => {
-                let stream = connection.playStream(ytdl(url2,  { filter: 'audioonly' }), streamOptions);
-            });
+            music();
         }).catch(error => console.log(error));
+
+        function music () {
+              let stream = connection.playStream(ytdl(url, { filter: 'audioonly' }), streamOptions);
+              stream.on("end", () => {
+                  let stream = connection.playStream(ytdl(url2,  { filter: 'audioonly' }), streamOptions);
+                  stream.on("end", () => {
+                    music();
+                  });
+              });
+        }
     }
 });
 
