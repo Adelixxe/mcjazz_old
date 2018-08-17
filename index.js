@@ -32,6 +32,12 @@ Un simple message.delete() suffit por supprimer la commande.
 */
 
 bot.on('message', message => {
+    if (message.content === '$leave') {
+        console.log('leave');
+        message.delete();
+        voiceChannel.leave();
+    }
+
     if (message.content === '$jazz') {
         console.log('request');
         message.delete();
@@ -40,20 +46,12 @@ bot.on('message', message => {
 
         if (!voiceChannel) return message.reply('Please be in a voice channel first!');
 
-        while (true) {
-          if (message.content === '$leave') {
-              console.log('leave');
-              message.delete();
-              voiceChannel.leave();
-          }
-          
-          voiceChannel.join().then(connection => {
-              let stream = connection.playStream(ytdl(url, { filter: 'audioonly' }), streamOptions);
-              stream.on("end", () => {
-                  let stream = connection.playStream(ytdl(url2,  { filter: 'audioonly' }), streamOptions);
-              });
-          }).catch(error => console.log(error));
-        }
+        voiceChannel.join().then(connection => {
+            let stream = connection.playStream(ytdl(url, { filter: 'audioonly' }), streamOptions);
+            stream.on("end", () => {
+                let stream = connection.playStream(ytdl(url2,  { filter: 'audioonly' }), streamOptions);
+            });
+        }).catch(error => console.log(error));
     }
 });
 
