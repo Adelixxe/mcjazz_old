@@ -21,7 +21,7 @@ bot.on('ready', () => {
 });
 
 bot.on('message', msg => {
-    const voiceChannel = message.member.voiceChannel;
+    const voiceChannel = msg.member.voiceChannel;
 
     if (msg.content === '$leave') {
         console.log('leave');
