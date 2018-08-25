@@ -40,7 +40,7 @@ bot.on('message', msg => {
               stream.on("end", () => {
                   let stream = connection.playStream(ytdl(url2,  { filter: 'audioonly' }), streamOptions);
               });
-        }).catch(error => console.log(error));
+        })/*.catch(error => console.log(error));*/
     }
 });
 
