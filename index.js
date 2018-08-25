@@ -36,18 +36,11 @@ bot.on('message', msg => {
         if (!voiceChannel) return msg.reply('Please be in a voice channel first!');
 
         voiceChannel.join().then(connection => {
-            music();
-        }).catch(error => console.log(error));
-
-        function music () {
-              let stream = connection.playStream(ytdl(url, { filter: 'audioonly' }), streamOptions);
+            let stream = connection.playStream(ytdl(url, { filter: 'audioonly' }), streamOptions);
               stream.on("end", () => {
                   let stream = connection.playStream(ytdl(url2,  { filter: 'audioonly' }), streamOptions);
-                  stream.on("end", () => {
-                    music();
-                  });
               });
-        }
+        }).catch(error => console.log(error));
     }
 });
 
